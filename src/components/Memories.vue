@@ -51,6 +51,9 @@
               <p>摊位上一朵艳阳</p>
               <img class="time-img" style="width: 60%" :src="require('../assets/img/22.jpg')" alt="">
               <p>很乖巧</p>
+              <br>
+              <br>
+              <div @click.passive="fireShow = true" style="padding: 5px; border-radius: 4px; border: 1px solid #fff; text-align: center">打开烟花！</div>
             </div>
           </div>
           <div class="ly-triangle21"></div>
@@ -73,17 +76,21 @@
   </ul>
 
 </div>
+  <Fire v-if="fireShow" />
 </div>
 </template>
 
 <script>
+import Fire from './fire.vue'
+
 let timer = null
 export default {
   components: {
-
+    Fire
   },
   data () {
     return {
+      fireShow: false,
       show: false,
       firstImg: false,
       options: {
